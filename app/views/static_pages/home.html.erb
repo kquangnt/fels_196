@@ -1,3 +1,4 @@
+
 <% provide :title, t("home") %>
 <div class="frame-image">
   <%= image_tag("h1.png", class: "mySlides") %>
@@ -8,3 +9,40 @@
   <a class="w3-btn-floating" id="icon-left"  onclick="plusDivs(-1)">&lt;</a>
   <a class="w3-btn-floating" id="icon-right" onclick="plusDivs(1)">&gt;</a>
 </div>
+<% provide :title, "Home" %>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render "shared/user_info" %>
+      </section>
+      <section class="stats">
+        <%= render "shared/stats" %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>The Lessons</h3>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="frame-image">
+    <%= image_tag("h1.png", class: "mySlides") %>
+    <%= image_tag("h2.png", class: "mySlides") %>
+    <%= image_tag("h3.png", class: "mySlides") %>
+    <%= image_tag("h4.png", class: "mySlides") %>
+    <%= image_tag("h5.png", class: "mySlides") %>
+    <a class="w3-btn-floating" id="icon-left"  onclick="plusDivs(-1)">&lt;</a>
+    <a class="w3-btn-floating" id="icon-right" onclick="plusDivs(1)">&gt;</a>
+  </div>
+
+  <div class="center jumbotron">
+    <h1>Welcome to the Our App</h1>
+    <h2>This is the home page for the
+      <a href="#">The Lessons of English courses</a>our application.
+    </h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

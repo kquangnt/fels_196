@@ -1,0 +1,17 @@
+<%= form_for(@user) do |user| %>
+  <%= render "shared/error_messages", object: user.object %>
+
+  <%= user.label :name %>
+  <%= user.text_field :name, class: "form-control" %>
+
+  <%= user.label :email %>
+  <%= user.email_field :email, class: "form-control" %>
+
+  <%= user.label :password %>
+  <%= user.password_field :password, class: "form-control" %>
+
+  <%= user.label :password_confirmation %>
+  <%= user.password_field :password_confirmation, class: "form-control" %>
+
+  <%= user.submit t("createmyaccount"), class: "btn btn-primary" %>
+<% end %>
