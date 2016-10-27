@@ -1,3 +1,5 @@
 per_page:
   category: 10
   course: 10
+  course: 2
+  user: 3
