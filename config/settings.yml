@@ -9,3 +9,5 @@ image_width: 200
 image_height: 200
 max_length_word: 50
 max_length_name_lesson: 50
+remember_value: 1
+size_users_helper: 80
