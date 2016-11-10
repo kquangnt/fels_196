@@ -1,0 +1,16 @@
+<% provide :title, t("all_users") %>
+<h1><%= t "all_users" %></h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= gravatar_for user, size: Settings.size_user_index %>
+      <%= link_to user.name, user %>
+      <% unless is_user?(user) %>
+        | <%= link_to t("delete"), user, method: :delete,
+          data: {confirm: t("you_sure")} %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>

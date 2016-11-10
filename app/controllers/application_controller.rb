@@ -22,4 +22,17 @@ class ApplicationController < ActionController::Base
   def correct_user
     redirect_to root_url unless current_user.is_user? @user
   end
+
+  def verify_user
+    @user = User.find_by_id params[:id]
+    unless @user
+      flash[:danger] = t "id_not_exist"
+      redirect_to users_path
+    end
+    redirect_to root_url unless is_user? @user
+  end
+
+  def verify_admin
+    redirect_to root_url unless current_user.admin?
+  end
 end

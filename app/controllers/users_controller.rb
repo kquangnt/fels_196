@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show]
-  before_action :load_user, only: :show
+  before_action :logged_in_user, except: [:new, :create]
+  before_action :load_user, except: [:index, :new, :create]
+  before_action :verify_user, only: [:edit, :update]
 
   def index
     @users = User.order_date_desc.paginate page: params[:page],
@@ -22,6 +23,18 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "profile_updated"
+      redirect_to @user
+    else
+      render :edit
     end
   end
 

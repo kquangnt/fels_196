@@ -3,6 +3,7 @@ per_page:
   course: 10
   lesson: 10
   word: 10
+  user: 5
 image_size: 5
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_width: 200
@@ -11,3 +12,4 @@ max_length_word: 50
 max_length_name_lesson: 50
 remember_value: 1
 size_users_helper: 80
+size_user_index: 50
